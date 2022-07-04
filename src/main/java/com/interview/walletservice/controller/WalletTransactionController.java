@@ -99,13 +99,13 @@ public class WalletTransactionController {
 	
 	public void checkBalance(Double getbal,Double getWithdrawl) {
 		if(getWithdrawl > getbal) {
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Invalid transaction! Your balance is lower than what you charging");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid transaction! Your balance is lower than what you charging");
 		}
 	}
 	
 	public void checkAmount(Double amount) {
 		if(amount==0) {
-			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Invalid transaction! 0 amount cannot be fund or charge");
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid transaction! 0 amount cannot be fund or charge");
 		}
 	}
 }
